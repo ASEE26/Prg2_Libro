@@ -36,6 +36,14 @@ class Libro{
             return tema;
         }
 
+        void establecerTitulo(string miTitulo){
+            titulo = miTitulo;
+        }
+
+        string obtenerTitulo(){
+            return titulo;
+        }
+
     private:
     // variables de la clase:  Atributos de la clase o bien miembros de datos.
         string tema, titulo;
@@ -52,7 +60,10 @@ int main(){
     // Necesitamos llenar los miembros de datos del objeto L1
 
     L1.establecerTema("Filosofia");
+    L1.establecerTitulo("El camino de los sabios");
+
     cout<<L1.obtenerTema()<<endl;
+    cout<<"Titulo: "<<L1.obtenerTitulo()<<endl;
 
     L2.establecerTema("Matematica");
     cout<<"Tema del objeto 2"<<endl;
