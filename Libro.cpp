@@ -12,22 +12,14 @@ class Libro{
 
     public:
 
-    // Funciones clasicas en c++ (programación estructurada) 
-    /*
-    Funcion tiene como componentes lo siguiente:
-    DatoDeRetorno NombreDeLaFuncion(Parametros){
-        Instrucciones
-        retorno
-    }
+        Libro(string miTema, string miTutulo, float precio){
+            establecerTema(miTema);
+            establecerTitulo(miTutulo);
+            establecerPrecio(precio);
+        }
 
-    int edad(fechaDeNacimiento){
-        Calculo
-        return edadActual
-    }
-// Hay funciones que no necesitan retornar ningun valor , por tanto el tipo de retorno es vacio, es decir, void.
+        Libro(){};
 
-    */
-   // Las "funciones" creadas en una clase se llaman metodos, o funciones miembros.
         void establecerTema(string t){
             tema = t;
         }
@@ -44,6 +36,20 @@ class Libro{
             return titulo;
         }
 
+        void establecerNumPaginas(int numP){
+            numPagina = numP;
+        }
+
+        int obtenerNumPaginas(){
+            return numPagina;
+        }
+
+    void establecerPrecio(float p){
+        precio = p;
+    }
+    float obtenerPrecio(){
+        return precio;
+    }
     private:
     // variables de la clase:  Atributos de la clase o bien miembros de datos.
         string tema, titulo;
@@ -55,15 +61,23 @@ class Libro{
 
 
 int main(){
-    Libro L1, L2; // crear un objeto del tipo Libro,  es decir, la "variable" L1 es en realidad un objeto de la clase Libro
-    // En cierta forma, necesitamos que L1 tenga informacion sobre su tema, titulo, numPagina y precio, en pocas palabras,
-    // Necesitamos llenar los miembros de datos del objeto L1
+    Libro L1, L2, L3("Fisica","Los secretos del universo",600); 
 
+
+    L3.establecerPrecio(300);
+    cout<<L3.obtenerTitulo()<<endl;
+    cout<<L3.obtenerPrecio()<<endl;
+    cout<<"-------------------------"<<endl;
+    
     L1.establecerTema("Filosofia");
     L1.establecerTitulo("El camino de los sabios");
+    L1.establecerNumPaginas(200);
+    L1.establecerPrecio(500);
 
+    cout<<"Libros a la venta"<<endl;
     cout<<L1.obtenerTema()<<endl;
     cout<<"Titulo: "<<L1.obtenerTitulo()<<endl;
+    cout<<"Precio: "<<L1.obtenerPrecio()<<endl;
 
     L2.establecerTema("Matematica");
     cout<<"Tema del objeto 2"<<endl;
