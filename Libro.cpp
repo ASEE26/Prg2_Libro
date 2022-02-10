@@ -3,86 +3,42 @@ using std::endl;
 using std::cout;
 using std::cin;
 
-#include <string>
-using std::string;
+#include "Libro.hpp"
 
 
-// Clases:
-class Libro{
+Libro::Libro(string miTema, string miTutulo, float precio){
+establecerTema(miTema);
+establecerTitulo(miTutulo);
+establecerPrecio(precio);
+}
 
-    public:
+Libro::Libro(){}
 
-        Libro(string miTema, string miTutulo, float precio){
-            establecerTema(miTema);
-            establecerTitulo(miTutulo);
-            establecerPrecio(precio);
-        }
+void Libro::establecerTema(string t){
+    tema = t;
+} 
+void Libro::establecerTitulo(string t){
+    titulo = t;
+} 
+void Libro::establecerPrecio(float p){
+    precio = p;
+} 
+void Libro::establecerNumPaginas(int pag){
+    numPagina = pag;
+} 
 
-        Libro(){};
+string Libro::obtenerTema(){
+    return tema;
+}
 
-        void establecerTema(string t){
-            tema = t;
-        }
+string Libro::obtenerTitulo(){
+    return titulo;
+}
 
-        string obtenerTema(){
-            return tema;
-        }
+float Libro::obtenerPrecio(){
+    return precio;
+}
 
-        void establecerTitulo(string miTitulo){
-            titulo = miTitulo;
-        }
-
-        string obtenerTitulo(){
-            return titulo;
-        }
-
-        void establecerNumPaginas(int numP){
-            numPagina = numP;
-        }
-
-        int obtenerNumPaginas(){
-            return numPagina;
-        }
-
-    void establecerPrecio(float p){
-        precio = p;
-    }
-    float obtenerPrecio(){
-        return precio;
-    }
-    private:
-    // variables de la clase:  Atributos de la clase o bien miembros de datos.
-        string tema, titulo;
-        int numPagina;
-        float precio;
-        // Editorial, autores, formato, tipo de pasta
-
-};
-
-
-int main(){
-    Libro L1, L2, L3("Fisica","Los secretos del universo",600); 
-
-
-    L3.establecerPrecio(300);
-    cout<<L3.obtenerTitulo()<<endl;
-    cout<<L3.obtenerPrecio()<<endl;
-    cout<<"-------------------------"<<endl;
-    
-    L1.establecerTema("Filosofia");
-    L1.establecerTitulo("El camino de los sabios");
-    L1.establecerNumPaginas(200);
-    L1.establecerPrecio(500);
-
-    cout<<"Libros a la venta"<<endl;
-    cout<<L1.obtenerTema()<<endl;
-    cout<<"Titulo: "<<L1.obtenerTitulo()<<endl;
-    cout<<"Precio: "<<L1.obtenerPrecio()<<endl;
-
-    L2.establecerTema("Matematica");
-    cout<<"Tema del objeto 2"<<endl;
-    cout<<L2.obtenerTema()<<endl;
-
-
-    return 0;
+int  Libro::obtenerNumPaginas(){
+    return numPagina;
 }
