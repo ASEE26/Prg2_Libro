@@ -12,6 +12,12 @@ establecerTitulo(miTutulo);
 establecerPrecio(precio);
 }
 
+Libro::Libro(string miTema, string miTitulo, string miAutor){
+    tema = miTema;
+    titulo = miTitulo;
+    autor = miAutor;
+}
+
 Libro::Libro(){}
 
 void Libro::establecerTema(string t){

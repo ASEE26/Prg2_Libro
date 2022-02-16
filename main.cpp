@@ -7,28 +7,61 @@ using std::cin;
 
 
 int main(){
-    Libro L1, L2, L3("Fisica","Los secretos del universo",600); 
+
+int opcion;
+string titulo, tema;
+string autor;
+Libro   L1;//L2(tema,titulo,autor);
+Libro libros[10];
+
+int contador= 0;
 
 
-    L3.establecerPrecio(300);
-    cout<<L3.obtenerTitulo()<<endl;
-    cout<<L3.obtenerPrecio()<<endl;
-    cout<<"-------------------------"<<endl;
-    
-    L1.establecerTema("Filosofia");
-    L1.establecerTitulo("El camino de los sabios");
-    L1.establecerNumPaginas(200);
-    L1.establecerPrecio(500);
+do{
+cout<<"Sistema bibleotecario"<<endl;
+cout<<"Seleccione una opción: "<<endl;
+cout<<"1.  Registrar  Libro"<<endl;
+cout<<"2.  Buscar Libro"<<endl;
+cout<<"Opcion: ";
+cin >> opcion;
 
-    cout<<"Libros a la venta"<<endl;
-    cout<<L1.obtenerTema()<<endl;
-    cout<<"Titulo: "<<L1.obtenerTitulo()<<endl;
-    cout<<"Precio: "<<L1.obtenerPrecio()<<endl;
+switch (opcion)
+{
+case  1:
+    cout<<"Ingrese el titulo del Libro: ";
+    cin >> titulo;
+    cout<<"Ingrese el tema: ";
+    cin >> tema;
+    //cout<<"Ingrese al autor: "<<endl;
+    //cin >> autor;
 
-    L2.establecerTema("Matematica");
-    cout<<"Tema del objeto 2"<<endl;
-    cout<<L2.obtenerTema()<<endl;
+    libros[contador].establecerTema(tema);
+    libros[contador].establecerTitulo(titulo);
+    contador++;
 
+    break;
+
+  case 2:
+            cout<<"Ingrese el tema del libro a buscar: ";
+            cin  >> tema;
+            
+            if(L1.obtenerTema() == tema){
+                cout<<"***************************************"<<endl;
+                cout<<"El libro que busca se encuentrra:"<<endl;
+                cout<<"Tema: "<<L1.obtenerTema()<<endl;
+                cout<<"Titulo: "<<L1.obtenerTitulo()<<endl;
+                //cout<<"Autores: "<<L2.onte
+            }
+            else{
+                cout<<"El libro no se encuentra"<<endl;
+            }
+             break;
+
+default:
+    break;
+}
+cout<<"________________________________________________"<<endl<<endl;
+}while(true);
 
     return 0;
 }
