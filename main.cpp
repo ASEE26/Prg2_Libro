@@ -12,7 +12,13 @@ int opcion;
 string titulo, tema;
 string autor;
 Libro   L1;//L2(tema,titulo,autor);
-Libro libros[10];
+Libro libros[2];
+/*
+    libros Arreglo
+
+[   ], [     ],[    ]... [   ]
+
+*/
 
 int contador= 0;
 
@@ -28,6 +34,9 @@ cin >> opcion;
 switch (opcion)
 {
 case  1:
+
+for (int  i = 0; i < 2; i++)
+ {
     cout<<"Ingrese el titulo del Libro: ";
     cin >> titulo;
     cout<<"Ingrese el tema: ";
@@ -35,10 +44,11 @@ case  1:
     //cout<<"Ingrese al autor: "<<endl;
     //cin >> autor;
 
-    libros[contador].establecerTema(tema);
-    libros[contador].establecerTitulo(titulo);
-    contador++;
-
+    libros[i].establecerTema(tema);
+    libros[i].establecerTitulo(titulo);
+    cout<<"Libro ingresado con exito"<<endl;
+    cout<<"*******************************"<<endl;
+ }
     break;
 
   case 2:
