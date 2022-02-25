@@ -9,6 +9,8 @@ using std::cin;
 int main(){
 
 int opcion;
+int continuar = 1;
+bool estaLibro = false;
 string titulo, tema;
 string autor;
 Libro   L1;//L2(tema,titulo,autor);
@@ -35,7 +37,8 @@ switch (opcion)
 {
 case  1:
 
-for (int  i = 0; i < 2; i++)
+
+for (int  i = 0; (i < 2) && (continuar ==1); i++)
  {
     cout<<"Ingrese el titulo del Libro: ";
     cin >> titulo;
@@ -48,23 +51,36 @@ for (int  i = 0; i < 2; i++)
     libros[i].establecerTitulo(titulo);
     cout<<"Libro ingresado con exito"<<endl;
     cout<<"*******************************"<<endl;
+    cout<<"Desea Registrar otro Libro: "<<endl;
+    cout<<"1. Si"<<endl;
+    cout<<"2. No"<<endl;
+    cout<<"Opcion: ";
+    cin >> continuar;
+
  }
     break;
 
   case 2:
             cout<<"Ingrese el tema del libro a buscar: ";
             cin  >> tema;
-            
-            if(L1.obtenerTema() == tema){
-                cout<<"***************************************"<<endl;
-                cout<<"El libro que busca se encuentrra:"<<endl;
-                cout<<"Tema: "<<L1.obtenerTema()<<endl;
-                cout<<"Titulo: "<<L1.obtenerTitulo()<<endl;
-                //cout<<"Autores: "<<L2.onte
-            }
-            else{
-                cout<<"El libro no se encuentra"<<endl;
-            }
+            estaLibro = false;
+            for (int  i = 0; i < 2; i++)
+            {   
+                    if(libros[i].obtenerTema() == tema){
+                        cout<<"***************************************"<<endl;
+                        cout<<"El libro que busca se encuentrra:"<<endl;
+                        cout<<"Tema: "<<libros[i].obtenerTema()<<endl;
+                        cout<<"Titulo: "<<libros[i].obtenerTitulo()<<endl;
+                        //cout<<"Autores: "<<L2.onte
+                        estaLibro = true;
+                        break;
+                    }
+              }
+              if(!estaLibro){
+                  cout<<"EL LIBRO NO SE ENCUENTRA REGISTRADO"<<endl;
+              }
+
+
              break;
 
 default:
