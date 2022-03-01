@@ -10,17 +10,14 @@ int main(){
 
 int opcion;
 int continuar = 1;
+int cantidadLibros;
 bool estaLibro = false;
 string titulo, tema;
 string autor;
-Libro   L1;//L2(tema,titulo,autor);
-Libro libros[2];
-/*
-    libros Arreglo
 
-[   ], [     ],[    ]... [   ]
-
-*/
+// Memoria dinamica.
+Libro *libros;
+//Libro libros[2];
 
 int contador= 0;
 
@@ -37,34 +34,32 @@ switch (opcion)
 {
 case  1:
 
+        cout<<"Cuantos Libros desea registrar: ";
+        cin >> cantidadLibros;
+        libros = new Libro[cantidadLibros];
 
-for (int  i = 0; (i < 2) && (continuar ==1); i++)
- {
-    cout<<"Ingrese el titulo del Libro: ";
-    cin >> titulo;
-    cout<<"Ingrese el tema: ";
-    cin >> tema;
-    //cout<<"Ingrese al autor: "<<endl;
-    //cin >> autor;
+        for (int  i = 0; i < cantidadLibros; i++)
+        {
+            cout<<"Ingrese el titulo del Libro "<<i+1<<"  : ";
+            cin >> titulo;
+            cout<<"Ingrese el tema: ";
+            cin >> tema;
+            //cout<<"Ingrese al autor: "<<endl;
+            //cin >> autor;
 
-    libros[i].establecerTema(tema);
-    libros[i].establecerTitulo(titulo);
-    cout<<"Libro ingresado con exito"<<endl;
-    cout<<"*******************************"<<endl;
-    cout<<"Desea Registrar otro Libro: "<<endl;
-    cout<<"1. Si"<<endl;
-    cout<<"2. No"<<endl;
-    cout<<"Opcion: ";
-    cin >> continuar;
+            libros[i].establecerTema(tema);
+            libros[i].establecerTitulo(titulo);
+            cout<<"Libro ingresado con exito"<<endl;
+            cout<<"*******************************"<<endl;
 
- }
+        }
     break;
 
   case 2:
             cout<<"Ingrese el tema del libro a buscar: ";
             cin  >> tema;
             estaLibro = false;
-            for (int  i = 0; i < 2; i++)
+            for (int  i = 0; i < cantidadLibros; i++)
             {   
                     if(libros[i].obtenerTema() == tema){
                         cout<<"***************************************"<<endl;
@@ -73,7 +68,6 @@ for (int  i = 0; (i < 2) && (continuar ==1); i++)
                         cout<<"Titulo: "<<libros[i].obtenerTitulo()<<endl;
                         //cout<<"Autores: "<<L2.onte
                         estaLibro = true;
-                        break;
                     }
               }
               if(!estaLibro){
