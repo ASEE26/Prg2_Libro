@@ -38,9 +38,9 @@ case  1:
         cin >> cantidadLibros;
         libros = new Libro[cantidadLibros];
 
-        for (int  i = 0; (i < cantidadLibros) && (continuar ==1); i++)
+        for (int  i = 0; i < cantidadLibros; i++)
         {
-            cout<<"Ingrese el titulo del Libro: ";
+            cout<<"Ingrese el titulo del Libro "<<i+1<<"  : ";
             cin >> titulo;
             cout<<"Ingrese el tema: ";
             cin >> tema;
@@ -51,11 +51,6 @@ case  1:
             libros[i].establecerTitulo(titulo);
             cout<<"Libro ingresado con exito"<<endl;
             cout<<"*******************************"<<endl;
-            cout<<"Desea Registrar otro Libro: "<<endl;
-            cout<<"1. Si"<<endl;
-            cout<<"2. No"<<endl;
-            cout<<"Opcion: ";
-            cin >> continuar;
 
         }
     break;
@@ -73,7 +68,6 @@ case  1:
                         cout<<"Titulo: "<<libros[i].obtenerTitulo()<<endl;
                         //cout<<"Autores: "<<L2.onte
                         estaLibro = true;
-                        break;
                     }
               }
               if(!estaLibro){
